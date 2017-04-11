@@ -1,0 +1,1 @@
+cmd_/home/wuyanran/project1/pro1/ptree.ko := arm-linux-androideabi-ld -r  -T /home/wuyanran/kernel/goldfish/scripts/module-common.lds --build-id  -o /home/wuyanran/project1/pro1/ptree.ko /home/wuyanran/project1/pro1/ptree.o /home/wuyanran/project1/pro1/ptree.mod.o
