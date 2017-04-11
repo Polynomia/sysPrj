@@ -46,10 +46,21 @@ void *customer(void *num)
 
 int main(int argc, char ** argv)
 {
+	//if there are not 4 inputs
+	if(argc!=5) {
+		printf("This program needs four inputs!\n");
+		return 0;}
+
 	int cooks=atoi(argv[1]);
 	int cashiers=atoi(argv[2]);
 	int customers=atoi(argv[3]);
 	int rackSize=atoi(argv[4]);
+
+	if(cooks<=0||cashiers<=0||customers<=0||rackSize<=0)
+	{	
+		printf("They need to be positive numbers!\n");
+		return 0;
+	}
 	printf("Cooks [%d], Cashiers [%d], Customers [%d]\nBegin run.\n",cooks,cashiers,customers);
 //	pthread_t cookpd[100],cashierpd[100],customerpd[100];
 	pthread_t *cookpd,*cashierpd,*customerpd;
