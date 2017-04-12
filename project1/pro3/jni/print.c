@@ -15,8 +15,8 @@ int main()
 		}
 	else if(Child >0)
 		{	
-			printf("515021910213 Parent %d\n",getpid());
 			waitpid(Child,NULL,0);
+			printf("515021910213 Parent %d\n",getpid());   
 		}
 	else{
 			printf("Child failed\n");
