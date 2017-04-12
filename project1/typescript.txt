@@ -1,0 +1,226 @@
+Problem 2:
+
+root@generic:/data # insmod ptree.ko
+root@generic:/data # ./testARM                                              There are 74 processes!
+swapper,0,0,0,1,0,0
+	init,1,1,0,45,2,0
+		ueventd,45,1,1,0,62,0
+		logd,62,1,1,0,63,1036
+		vold,63,1,1,0,67,0
+		healthd,67,1,1,0,68,0
+		lmkd,68,1,1,0,69,0
+		servicemanager,69,1,1,0,74,1000
+		surfaceflinger,74,1,1,0,76,1000
+		qemud,76,1,1,0,79,0
+		sh,79,1,1,0,80,2000
+		adbd,80,1,1,1187,81,0
+			sh,1187,1,80,1194,1,0
+				testARM,1194,0,1187,0,1,0
+		netd,81,1,1,0,82,0
+		debuggerd,82,1,1,0,83,0
+		rild,83,1,1,0,84,1001
+		drmserver,84,1,1,0,85,1019
+		mediaserver,85,1,1,0,86,1013
+		installd,86,1,1,0,87,0
+		keystore,87,1,1,0,88,1017
+		main,88,1,1,300,89,0
+			system_server,300,1,88,0,678,1000
+			putmethod.latin,678,1,88,0,699,10032
+			m.android.phone,699,1,88,0,707,1001
+			droid.launcher3,707,1,88,0,736,10007
+			d.process.acore,736,1,88,0,799,10002
+			m.android.music,799,1,88,0,822,10035
+			d.process.media,822,1,88,0,837,10005
+			id.printspooler,837,1,88,0,875,10040
+			ndroid.systemui,875,1,88,0,931,10013
+			externalstorage,931,1,88,0,974,10006
+			droid.deskclock,974,1,88,0,1008,10023
+			.quicksearchbox,1008,1,88,0,1025,10042
+			ndroid.keychain,1025,1,88,0,1042,1000
+			.android.dialer,1042,1,88,0,1057,10004
+			viders.calendar,1057,1,88,0,1075,10001
+			gedprovisioning,1075,1,88,0,1094,10008
+			ndroid.calendar,1094,1,88,0,1118,10019
+			m.android.email,1118,1,88,0,1133,10027
+			ndroid.exchange,1133,1,88,0,1155,10029
+			ndroid.settings,1155,1,88,0,1,1000
+		gatekeeperd,89,1,1,0,90,1000
+		perfprofd,90,1,1,0,91,0
+		fingerprintd,91,1,1,0,1,1000
+	kthreadd,2,1,0,3,0,0
+		ksoftirqd/0,3,1,2,0,6,0
+		khelper,6,1,2,0,7,0
+		sync_supers,7,1,2,0,8,0
+		bdi-default,8,1,2,0,9,0
+		kblockd,9,1,2,0,10,0
+		rpciod,10,1,2,0,11,0
+		kworker/0:1,11,1,2,0,12,0
+		kswapd0,12,1,2,0,13,0
+		fsnotify_mark,13,1,2,0,14,0
+		crypto,14,1,2,0,25,0
+		kworker/u:1,25,1,2,0,30,0
+		mtdblock0,30,1,2,0,35,0
+		mtdblock1,35,1,2,0,40,0
+		mtdblock2,40,1,2,0,41,0
+		binder,41,1,2,0,42,0
+		mmcqd/0,42,1,2,0,43,0
+		deferwq,43,1,2,0,44,0
+		kworker/u:2,44,1,2,0,47,0
+		jbd2/mtdblock0-,47,1,2,0,48,0
+		ext4-dio-unwrit,48,1,2,0,52,0
+		flush-31:1,52,1,2,0,54,0
+		jbd2/mtdblock1-,54,1,2,0,55,0
+		ext4-dio-unwrit,55,1,2,0,60,0
+		jbd2/mtdblock2-,60,1,2,0,61,0
+		ext4-dio-unwrit,61,1,2,0,73,0
+		kauditd,73,1,2,0,519,0
+		kworker/0:0,519,1,2,0,854,0
+		flush-179:0,854,1,2,0,0,0
+
+
+Problem 3:
+
+515021910213 Child, 1200
+There are 75 processes!
+swapper,0,0,0,1,0,0
+	init,1,1,0,45,2,0
+		ueventd,45,1,1,0,62,0
+		logd,62,1,1,0,63,1036
+		vold,63,1,1,0,67,0
+		healthd,67,1,1,0,68,0
+		lmkd,68,1,1,0,69,0
+		servicemanager,69,1,1,0,74,1000
+		surfaceflinger,74,1,1,0,76,1000
+		qemud,76,1,1,0,79,0
+		sh,79,1,1,0,80,2000
+		adbd,80,1,1,1187,81,0
+			sh,1187,1,80,1199,1,0
+				printARM,1199,1,1187,1200,1,0
+					testARM,1200,0,1199,0,1,0
+		netd,81,1,1,0,82,0
+		debuggerd,82,1,1,0,83,0
+		rild,83,1,1,0,84,1001
+		drmserver,84,1,1,0,85,1019
+		mediaserver,85,1,1,0,86,1013
+		installd,86,1,1,0,87,0
+		keystore,87,1,1,0,88,1017
+		main,88,1,1,300,89,0
+			system_server,300,1,88,0,678,1000
+			putmethod.latin,678,1,88,0,699,10032
+			m.android.phone,699,1,88,0,707,1001
+			droid.launcher3,707,1,88,0,736,10007
+			d.process.acore,736,1,88,0,799,10002
+			m.android.music,799,1,88,0,822,10035
+			d.process.media,822,1,88,0,837,10005
+			id.printspooler,837,1,88,0,875,10040
+			ndroid.systemui,875,1,88,0,931,10013
+			externalstorage,931,1,88,0,974,10006
+			droid.deskclock,974,1,88,0,1008,10023
+			.quicksearchbox,1008,1,88,0,1025,10042
+			ndroid.keychain,1025,1,88,0,1042,1000
+			.android.dialer,1042,1,88,0,1057,10004
+			viders.calendar,1057,1,88,0,1075,10001
+			gedprovisioning,1075,1,88,0,1094,10008
+			ndroid.calendar,1094,1,88,0,1118,10019
+			m.android.email,1118,1,88,0,1133,10027
+			ndroid.exchange,1133,1,88,0,1155,10029
+			ndroid.settings,1155,1,88,0,1,1000
+		gatekeeperd,89,1,1,0,90,1000
+		perfprofd,90,1,1,0,91,0
+		fingerprintd,91,1,1,0,1,1000
+	kthreadd,2,1,0,3,0,0
+		ksoftirqd/0,3,1,2,0,6,0
+		khelper,6,1,2,0,7,0
+		sync_supers,7,1,2,0,8,0
+		bdi-default,8,1,2,0,9,0
+		kblockd,9,1,2,0,10,0
+		rpciod,10,1,2,0,11,0
+		kworker/0:1,11,1,2,0,12,0
+		kswapd0,12,1,2,0,13,0
+		fsnotify_mark,13,1,2,0,14,0
+		crypto,14,1,2,0,25,0
+		kworker/u:1,25,1,2,0,30,0
+		mtdblock0,30,1,2,0,35,0
+		mtdblock1,35,1,2,0,40,0
+		mtdblock2,40,1,2,0,41,0
+		binder,41,1,2,0,42,0
+		mmcqd/0,42,1,2,0,43,0
+		deferwq,43,1,2,0,44,0
+		kworker/u:2,44,1,2,0,47,0
+		jbd2/mtdblock0-,47,1,2,0,48,0
+		ext4-dio-unwrit,48,1,2,0,52,0
+		flush-31:1,52,1,2,0,54,0
+		jbd2/mtdblock1-,54,1,2,0,55,0
+		ext4-dio-unwrit,55,1,2,0,60,0
+		jbd2/mtdblock2-,60,1,2,0,61,0
+		ext4-dio-unwrit,61,1,2,0,73,0
+		kauditd,73,1,2,0,519,0
+		kworker/0:0,519,1,2,0,854,0
+		flush-179:0,854,1,2,0,0,0
+515021910213 Parent 1199
+
+
+Problem 4:
+
+correct input:
+
+wuyanran@ubuntu:~/sysPrj/project1/pro4$ ./BBC 4 6 10 10
+Cooks [4], Cashiers [6], Customers [10]
+Begin run.
+Cook [4] makes a burger.
+Cook [3] makes a burger.
+Cook [2] makes a burger.
+Cook [1] makes a burger.
+Customer [4] come.
+Customer [6] come.
+Customer [10] come.
+Cashier [1] accepts an order.
+Cashier [1] take a burger to customer.
+Cashier [1] accepts an order.
+Cashier [1] take a burger to customer.
+Cashier [1] accepts an order.
+Cashier [1] take a burger to customer.
+Cook [3] makes a burger.
+Cook [1] makes a burger.
+Customer [3] come.
+Customer [7] come.
+Customer [9] come.
+Cashier [4] accepts an order.
+Cashier [4] take a burger to customer.
+Cashier [4] accepts an order.
+Cashier [4] take a burger to customer.
+Cashier [4] accepts an order.
+Cashier [4] take a burger to customer.
+Customer [2] come.
+Cashier [1] accepts an order.
+Customer [1] come.
+Cashier [2] accepts an order.
+Customer [5] come.
+Customer [8] come.
+Cashier [3] accepts an order.
+Cashier [4] accepts an order.
+Cook [4] makes a burger.
+Cashier [1] take a burger to customer.
+Cook [3] makes a burger.
+Cashier [2] take a burger to customer.
+Cook [2] makes a burger.
+Cashier [3] take a burger to customer.
+Cook [1] makes a burger.
+Cashier [4] take a burger to customer.
+
+wrong input:
+
+wuyanran@ubuntu:~/sysPrj/project1/pro4$ ./BBC 4 6 10
+This program needs four inputs!
+
+wuyanran@ubuntu:~/sysPrj/project1/pro4$ ./BBC 4 6 10 -10
+They need to be positive numbers!
+
+wuyanran@ubuntu:~/sysPrj/project1/pro4$ ./BBC 4 6 10 a
+They need to be positive numbers!
+
+wuyanran@ubuntu:~/sysPrj/project1/pro4$ ./BBC 4 6 10 10 2
+This program needs four inputs!
+
+
+
