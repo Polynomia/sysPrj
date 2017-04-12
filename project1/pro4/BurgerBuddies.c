@@ -11,9 +11,9 @@ void *cook(void *num){
 	int i=*(int*)num;
 	while(1){
 		sem_wait(&rack);
-		usleep(200);  
 		sem_post(&burger);
 		printf("%s%d%s","Cook [",i,"] makes a burger.\n");
+		usleep(rand()%400);   
 	}	
 }
 
@@ -36,7 +36,7 @@ void *cashier(void *num)
 void *customer(void *num)
 {
 	int i=*(int *)num;
-		usleep(200);
+		usleep(rand()%400);
 		printf("%s%d%s","Customer [",i,"] come.\n");
 		sem_wait(&server);
 		sem_post(&order);
