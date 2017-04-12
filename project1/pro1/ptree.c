@@ -58,7 +58,7 @@ int mySyscall(struct prinfo *buf, int *nr)
 	struct prinfo *kbuf;
 	kbuf=kmalloc(100*sizeof(struct prinfo),GFP_KERNEL);
 	if (kbuf == NULL) 
-	{	printk("Allocation initialize error!\n");
+	{	printk("Allocate kbuf error!\n");
 		return -EFAULT;
 	}
 	read_lock(&tasklist_lock);

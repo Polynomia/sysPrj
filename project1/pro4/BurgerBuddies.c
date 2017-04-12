@@ -11,9 +11,9 @@ void *cook(void *num){
 	int i=*(int*)num;
 	while(1){
 		sem_wait(&rack);
+		usleep(200);  
 		sem_post(&burger);
 		printf("%s%d%s","Cook [",i,"] makes a burger.\n");
-		usleep(200);
 	}	
 }
 
@@ -23,13 +23,12 @@ void *cashier(void *num)
 	int i=*(int *)num;
 	while(1){
 		sem_wait(&order);
-		printf("%s%d%s","Casher [",i,"] accepts an order.\n");  
+		printf("%s%d%s","Cashier [",i,"] accepts an order.\n");  
 		sem_wait(&burger);
 		sem_post(&getBurger);
-		printf("%s%d%s","Casher [",i,"] take a burger to customor.\n");
+		printf("%s%d%s","Cashier [",i,"] take a burger to customer.\n");
 		sem_post(&rack);
 		sem_post(&server);
-		usleep(200);
 	}
 }
 
@@ -82,7 +81,7 @@ int main(int argc, char ** argv)
 	for(i=0;i<cooks;i++){
 		int *t=i+id;
 		if(pthread_create(&cookpd[i],NULL,cook,t)!=0)
-			printf("cook thread erroo!\n");
+			printf("cook thread error!\n");
 	}
 	for(i=0;i<customers;i++){
 		int *t=i+id;
