@@ -1,6 +1,6 @@
 This is the readme of Operating System Project 1.
 author:Wu Yanran 
-student number: 515021910213
+student number: ************
 ========================================================
 
 Files:
