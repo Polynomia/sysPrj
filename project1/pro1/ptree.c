@@ -1,3 +1,9 @@
+/*
+  This program is to complete the system call.
+  First, I copy the task into the prinfo struct in dfs order.
+  Then, since the data is in kernel, we need to copy them to user.
+*/
+
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/init.h>
@@ -78,7 +84,7 @@ static int addsyscall_init(void)
 {
 	long *syscall = (long*)0xc000d8c4;
 	oldcall = (int(*)(void))(syscall[__NR_hellocall]);
-	syscall[__NR_hellocall] = (unsigned long )mySyscall;
+	syscall[__NR_hellocall] = (unsigned long )mySyscall;//only need to change the name.
 	printk(KERN_INFO "module load!\n");
 	return 0;
 }
