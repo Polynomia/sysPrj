@@ -14,7 +14,7 @@ int main()
 {
 	pid_t Parent=getpid();
 	pid_t Child=fork();
-//	printf("515021910213 Parent, %d\n",Parent);
+//	printf("************ Parent, %d\n",Parent);
 	if(Child==0){
 		printf("************ Child, %d\n",getpid());
 		execl("/data/testARM","testARM",NULL);
