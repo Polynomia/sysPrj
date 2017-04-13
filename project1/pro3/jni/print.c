@@ -1,3 +1,9 @@
+/*
+	This is the program to generate a new process.
+    I use the fork function to create a new process, and use execl to execute ptree in the child process.
+	Use waipid to make parent process wait until the child finished.
+	The testArm is stored in data folder.
+*/
 #include<unistd.h>
 #include<sys/types.h>
 #include<stdlib.h>
