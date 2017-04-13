@@ -1,3 +1,19 @@
+/*
+  This program is to solve burger buddies problem, using three threads:
+  cook, cashier, customer;
+  and five semaphores: rack,burger,order,server,getBurger:
+   * Rack's initial value equals to the racksize. Cooks only can make 
+     burgurs when rack is bigger than 0.
+   * Burgur's initial value is 0. When cooks make a burgur, it adds 1.
+   * Order is initialized to 0. When a customer comes, he waits for 
+     sever, then order adds 1.
+   * Server's initial value equals to the number of cashiers. If server
+     is bigger than 0, a cashier will accept the order.
+   * getBuerger is initialized to be 0. If there are burgers, the order
+     will be handled, getBurger adds 1, customer leaves. Order and burger 
+     sub 1.
+*/
+
 #include<stdio.h>
 #include<semaphore.h>
 #include<pthread.h>
@@ -13,10 +29,10 @@ void *cook(void *num){
 		sem_wait(&rack);
 		sem_post(&burger);
 		printf("%s%d%s","Cook [",i,"] makes a burger.\n");
-		usleep(rand()%400);   
+		usleep(rand()%400);   //if there is no sleep, this thread will run many times.
 	}	
 }
-
+//i think cashiers don't need to sleep, they should serve all the time.
 
 void *cashier(void *num)
 {
@@ -36,7 +52,7 @@ void *cashier(void *num)
 void *customer(void *num)
 {
 	int i=*(int *)num;
-		usleep(rand()%400);
+		usleep(rand()%400);//sleep, or they will continuly come
 		printf("%s%d%s","Customer [",i,"] come.\n");
 		sem_wait(&server);
 		sem_post(&order);
@@ -54,7 +70,7 @@ int main(int argc, char ** argv)
 	int cashiers=atoi(argv[2]);
 	int customers=atoi(argv[3]);
 	int rackSize=atoi(argv[4]);
-
+	
 	if(cooks<=0||cashiers<=0||customers<=0||rackSize<=0)
 	{	
 		printf("They need to be positive numbers!\n");
@@ -65,7 +81,11 @@ int main(int argc, char ** argv)
 	pthread_t *cookpd,*cashierpd,*customerpd;
 	cookpd=(pthread_t*)malloc(cooks*sizeof(pthread_t));
 	customerpd=(pthread_t*)malloc(customers*sizeof(pthread_t));
-	cashierpd=(pthread_t*)malloc(cashiers*sizeof(pthread_t));	
+	cashierpd=(pthread_t*)malloc(cashiers*sizeof(pthread_t));
+//make sure they are allocated
+	if(cookpd==NULL||customerpd==NULL||cashierpd==NULL)
+		printf("allocate error!\n");
+	
 	sem_init(&order,0,0);
 	sem_init(&server,0,cashiers);
 	sem_init(&burger,0,0);
@@ -102,6 +122,10 @@ int main(int argc, char ** argv)
 		pthread_join(customerpd[i],NULL);
 //	for(i=0;i<cashiers;i++)
 //		pthread_join(cashierpd[i],NULL);
+	free(cookpd);
+	free(customerpd);
+	free(cashierpd);
+	free(id);
 	sem_destroy(&getBurger);
 	sem_destroy(&rack);
 	sem_destroy(&order);
