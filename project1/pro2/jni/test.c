@@ -1,3 +1,7 @@
+/*
+  This is the test program for ptree syscall.
+  We need to print the entire process tree (in DFS order) using tabs to indent children with respect to their parents.So I use an array called indent to store the number of tabs of every process.
+*/
 #include <unistd.h>
 #include <sys/syscall.h>
 #include <stdio.h>
@@ -53,7 +57,7 @@ int main()
 	buf= malloc(1000 * sizeof(struct prinfo));
 	int *nr = malloc(sizeof(int));
 	if (buf == NULL || nr == NULL) {
-			printf("Allocation error!\n");}
+			printf("Allocation error!\n");return 0;}
 	syscall(356, buf, nr);
 	printf("There are %d processes!\n", *nr);
 	print_tree(buf,nr);
