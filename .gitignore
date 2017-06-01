@@ -57,3 +57,6 @@ libs
 obj
 *.out
 BBC
+
+*.xml
+*.iml
