@@ -6,13 +6,15 @@
 #include <linux/unistd.h>
 #include <linux/mman.h>
 #include <linux/mm.h>
-#include <asm/pgtable.h>
+//#include <asm/pgtable.h>
 #include <linux/list.h>
 #include <asm/memory.h>
 #include <linux/slab.h> //alloction function
 #include <linux/uaccess.h>	//KtoU
 #include <linux/syscalls.h>
 #include <asm/errno.h>
+#include <linux/pid.h>
+#include <asm/page.h>
 
 MODULE_LICENSE("Dual BSD/GPL");
 static int(*oldcall)(void);
@@ -34,6 +36,23 @@ int layoutcall(struct pagetable_layout_info * pgtbl_info)
         return -EFAULT;
     return 0;
 }
+
+int exposecall(pid_t pid, unsigned long fake_pgd,unsigned long addr)
+{
+	struct task_struct *ts;
+	struct pid *pid_struct;
+	struct mm_struct *target_mm;
+	int ret = 0;
+
+	
+	return 0;
+}
+
+
+
+
+
+
 
 //No need to change them
 

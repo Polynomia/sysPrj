@@ -5,10 +5,10 @@
 #include <sys/mman.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <asm/page.h>
 
 struct pagetable_layout_info {
 	uint32_t pgdir_shift;
+	uint32_t pmd_shift;
 	uint32_t page_shift;
 };
 
