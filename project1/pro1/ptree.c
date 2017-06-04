@@ -30,7 +30,7 @@ struct prinfo{
 };
 
 //transfer task_struct to prinfo
-
+/*
 void copyToPrinfo(struct task_struct *task, struct prinfo *kbuf, int *knr)
 {
 	kbuf[*knr].parent_pid=(task->real_parent==NULL)?0:task->real_parent->pid;
@@ -40,7 +40,7 @@ void copyToPrinfo(struct task_struct *task, struct prinfo *kbuf, int *knr)
 	get_task_comm(kbuf[*knr].comm,task);
 	kbuf[*knr].first_child_pid=(list_empty(&task->children)==1)?0:(list_entry(task->children.next,struct task_struct,sibling)->pid);
 	kbuf[*knr].next_sibling_pid=(list_empty(&task->sibling)==1)?0:(list_entry(task->sibling.next,struct task_struct,sibling)->pid);
-}	
+}	*/
 
 //dfs function
 

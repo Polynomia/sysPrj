@@ -3,12 +3,9 @@
 #include <linux/kernel.h>
 #include <linux/init.h>
 #include <linux/sched.h>
-#include <linux/unistd.h>
 #include <linux/mman.h>
 #include <linux/mm.h>
-//#include <asm/pgtable.h>
-#include <linux/list.h>
-#include <asm/memory.h>
+//#include <linux/list.h>
 #include <linux/slab.h> //alloction function
 #include <linux/uaccess.h>	//KtoU
 #include <linux/syscalls.h>
@@ -24,14 +21,20 @@ static int(*oldcall)(void);
 
 struct pagetable_layout_info {
     uint32_t pgdir_shift;
+    uint32_t user_ptrs_per_pgd;
+    uint32_t ptrs_per_pgd;
+    uint32_t ptrs_per_pte;
     uint32_t page_shift;
 };
 
-int layoutcall(struct pagetable_layout_info * pgtbl_info)
+int layoutcall(struct pagetable_layout_info *pgtbl_info)
 {
     struct pagetable_layout_info layout_info;
     layout_info.pgdir_shift = PGDIR_SHIFT;
     layout_info.page_shift = PAGE_SHIFT;
+    layout_info.user_ptrs_per_pgd=USER_PTRS_PER_PGD;
+    layout_info.ptrs_per_pte=PTRS_PER_PTE;
+    layout_info.ptrs_per_pgd=PTRS_PER_PGD;
     if (copy_to_user(pgtbl_info, &layout_info,sizeof(struct pagetable_layout_info)))
         return -EFAULT;
     return 0;
